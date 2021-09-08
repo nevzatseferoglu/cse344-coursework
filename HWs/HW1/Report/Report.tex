@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx, epsfig, fancyhdr}
+
+\title{System Programming Report} 
+\author {Nevzat Seferoglu}
+
+\setlength{\headheight}{28pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Gebze Techncial University} \\ \textbf{Nevzat Seferoglu - 171044024}}
+\fancyfoot[C]{\thepage}
+\begin{document}
+
+\begin{center} \Large \end{center}
+{\large \textbf{System Programming (CSE344) - HW1}} \\\\
+{\large \textbf{Advanced File System Search in Posix Environment}} \\\\
+\textbf{How I solved this problem ?}
+\begin{itemize}
+    \item{I exploited \textbf{struct} and \textbf{enumerate} type to keep my algorithm neat then traverse the file system with recursive function and validate the current file or directory with validation function that contains some system calls and macros.}
+\end{itemize}\
+\textbf{How I made design decision ?}
+\begin{itemize}
+    \item{I needed to keep the data while traversing on file system due to printing layout. Tree was required. Therefore I decide record the file name in a tree structure. Algorithm splits the path then keep in array, send that array to add function which is recursive also.}
+\end{itemize}\
+\textbf{Expected result}
+\begin{itemize}
+    \item{All required tasks should work as expected.}
+    \item{All errors and system calls were checked and handled in a good way.}
+    \item{There should not be any kind of leak and arbitrary errors based on my tests.}
+\end{itemize}\
+\textbf{Optimization that I made}
+\begin{itemize}
+    \item{I wrote my own split function which returns array of string instead of \textbf{strtok}. Because \textbf{strtok} is not a \textbf{thread safe} and may cause an error in multithreaded programs.}
+    \item{In case of permission denied to file, user is notified then at the end of the search, tree will be printed to screen.}
+\end{itemize}
+\end{document}

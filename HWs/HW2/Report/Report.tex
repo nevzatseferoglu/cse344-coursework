@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx, epsfig, fancyhdr}
+
+\title{System Programming Report} 
+\author {Nevzat Seferoglu}
+
+\setlength{\headheight}{28pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Gebze Techncial University} \\ \textbf{Nevzat Seferoglu - 171044024}}
+\fancyfoot[C]{\thepage}
+\begin{document}
+
+\begin{center} \Large \end{center}
+{\large \textbf{System Programming (CSE344) - HW2}} \\\\
+{\large \textbf{Multiprocessing and Signal Handling}} \\\\
+\textbf{How I solved the problem ?}
+\begin{itemize}
+    \item{Problem was designing primitive like communication between parent and its childs. We need to set up some control points in both childs and parent based on our Lagrange algorithm. These control points will put blocked signals in pending structure. Pending signals will be unlocked with given mask by \textbf{sigsuspend} system function. Therefore, by applying \textbf{sigsuspend} and \textbf{kill} we can stop and continue at certain points in our desing.}
+\end{itemize}\
+\textbf{What was the design decision ?}
+\begin{itemize}
+    \item{Decision is actually simple. The receiver has to inform the sender with signal. By applying this, receiver can suspend its execution until its private signal comes from sender. If the receiver would not send a signal to its sender, existing senders can send a signal to their same receiver and some signals can disappear. The class official book also recommends this solution.}
+\end{itemize}\
+\textbf{Which requirements I achieved ?}
+\begin{itemize}
+    \item{All requirements in the assignment were achieved by applying test with given example.}
+\end{itemize}\
+\textbf{Copyright Notice}
+\begin{itemize}
+    \item{Lagrange Algorithm:\\\textbf{https://www.bragitoff.com/2018/01/lagrange-interpolation-polynomial-c-program/}}
+    \item{Coefficient Calculation:\\\textbf{https://stackoverflow.com/questions/9860937/how-to-calculate-coefficients-of-polynomial-using-lagrange-interpolation/61265513\#61265513}}
+\end{itemize}\
+\end{document}

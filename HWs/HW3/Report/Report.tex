@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx, epsfig, fancyhdr}
+
+\title{System Programming Report} 
+\author {Nevzat Seferoglu}
+
+\setlength{\headheight}{28pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Gebze Techncial University} \\ \textbf{Nevzat Seferoglu - 171044024}}
+\fancyfoot[C]{\thepage}
+\begin{document}
+
+\begin{center} \Large \end{center}
+{\large \textbf{System Programming (CSE344) - HW3}} \\\\
+{\large \textbf{Semaphores and Synchronization Barrier}} \\\\
+\textbf{How I solved the problem ?}
+\begin{itemize}
+    \item{First approach was filling shared memory by using synchronization with semaphores. After I was sure that all processes recorded their cooldown, pid and other crucial information were allocated in shared memory. Processes could be ready for openning their fifo files one by one. Until now everything work fine. After I implemented several policy of sending potatoes from process to process, some patotoes can between processes but some cannot and receive an error.}
+\end{itemize}\
+\textbf{What was the design decision ?}
+\begin{itemize}
+    \item{Semaphores was the key component for creating barrier between several processes and fifos are the key component for communication. Fifos are going to open each other successfully after certain blocking point passed. According to policy between processes, potatoes can be switched between processes accomplishedly. But semaphores and fifos design was crucial for not interleaving each other.}
+\end{itemize}\
+\textbf{Which requirements I achieved ?}
+\begin{itemize}
+    \item{Shared memory were filled correctly by using synchronization (semaphores).}
+    \item{Fifos opened successuly and \textbf{several switching done}.}
+    \item{Because of my design, homework was not fully archived.}
+    \item{\textbf{Archived part PNGs located under Report file.}}
+\end{itemize}\
+\end{document}
